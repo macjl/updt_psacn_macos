@@ -1,5 +1,9 @@
 # updt_psacn_macos
 
+Ce script est une aide pour appliquer les mises à jour du Connect Nav des véhicules PSA sous macOS. En effet, le formatage de la clé USB, ainsi que les fichiers commençant pas ._ laissés par macOS gênent les mises à jour du Connect Nav.
+
+# Détail
+
 Pour ceux qui sont sous Mac, j'ai créé ce script pour aider à formater une clé USB et y extraire la mise à jour. Attention, le script va formater la clé USB, donc il est potentiellement dangereux pour vos données! Mais j'ai essayé de le rendre aussi sûr que possible. De plus, j'ai développé ce script pour qu'il ne demande aucun mot de passe administrateur. Si il le fait, ce n'est pas normal! Il y a alors un risque que vous n'exécutiez pas le bon script ou que quelqu'un de mal intentionné l'ai détourné.
 Dans tous les cas, ce script est à utiliser à vos risques et périls. Je ne serai pas responsable en cas de perte de données.
 
