@@ -8,7 +8,7 @@ Pour ceux qui sont sous Mac, j'ai créé ce script pour aider à formater une cl
 Dans tous les cas, ce script est à utiliser à vos risques et périls. Je ne serai pas responsable en cas de perte de données.
 
 Pour commencer, télécharger le script ici :
-https://github.com/macjl/updt_psacn_macos/raw/master/updt_psacn_macos.command.zip
+https://github.com/macjl/updt_psacn_macos/archive/master.zip
 
 La première fois, ouvrez le script avec un 'Clic-droit' puis 'Ouvrir' et confirmer par 'Ouvrir'. Si vous ne ne faites pas ainsi, macOS ne voudra pas l'ouvrir pour des questions de sécurité.
 Par la suite, vous pourrez l'ouvrir directement en double cliquant dessus.
