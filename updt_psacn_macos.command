@@ -110,7 +110,7 @@ eject() {
 						cd /Volumes/PSAUPDT
 						find . -name "._*" -exec rm -v {} \; 2>/dev/null
 						rm -fr .Trashes .fseventsd
-						cd -
+						cd
 						diskutil umountDisk force /Volumes/PSAUPDT
 						echo "Opération terminée. Vous pouvez retirer la clé USB et l'insérer dans votre véhicule"
 					else
@@ -145,6 +145,8 @@ license() {
 }
 
 REPLY=0
+caffeinate &
+CAFPID=$!
 
 while [ $REPLY != 5 ]
 do
@@ -164,6 +166,8 @@ do
 	done
 	[ $REPLY -lt 5 ] && sleep 4
 done
+
+kill $CAFPID
 
 echo
 echo "###########################################################"
