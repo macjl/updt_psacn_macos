@@ -134,18 +134,24 @@ license() {
 	fi
 }
 
-clear
-echo "Que souhaitez vous faire?"
-PS3="Choix : "
-select opt in "Formater la clé USB" "Copier l'éventuel fichier de license" "Copier la mise à jour dans la clé" "Quitter"
+REPLY=0
+
+while [ $REPLY != 4 ]
 do
-	case $REPLY in
-		1 ) format ; break;;
-		2 ) license ; break;;
-		3 ) expand ; break;;
-		4 ) break ;;
-		*) echo "Option invalide" ; continue
-	esac
+	clear
+	echo "Que souhaitez vous faire?"
+	PS3="Choix : "
+	select opt in "Formater la clé USB" "Copier l'éventuel fichier de license" "Copier la mise à jour dans la clé" "Quitter"
+	do
+		case $REPLY in
+			1 ) format ; break;;
+			2 ) license ; break;;
+			3 ) expand ; break;;
+			4 ) break ;;
+			*) echo "Option invalide" ; continue
+		esac
+	done
+	[ $REPLY -lt 4 ] && sleep 4
 done
 
 echo
