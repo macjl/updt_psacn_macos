@@ -97,17 +97,28 @@ expand() {
 				if [ $RC -ne 0 ] ; then
 					echo
 					echo "L'extraction a échouée. Vérifier les messages précédents pour comprendre la raison de l'échec"
-				else
-					find . -name "._*" -exec rm -v {} \; 2>/dev/null
-					rm -fr .Trashes .fseventsd
-					cd
-					diskutil eject "$VOLUME"
-					echo "Opération terminée. Vous pouvez retirer la clé USB et l'insérer dans votre véhicule"
 				fi
 			fi
 		fi
 	fi
 }
+
+eject() {
+
+					if [ -d /Volumes/PSAUPDT ]
+					then
+						cd /Volumes/PSAUPDT
+						find . -name "._*" -exec rm -v {} \; 2>/dev/null
+						rm -fr .Trashes .fseventsd
+						cd -
+						sleep 5
+						diskutil eject /Volumes/PSAUPDT
+						echo "Opération terminée. Vous pouvez retirer la clé USB et l'insérer dans votre véhicule"
+					else
+						echo "Clee non trouvée"
+					fi
+}
+
 
 license() {
 	clear
@@ -136,22 +147,23 @@ license() {
 
 REPLY=0
 
-while [ $REPLY != 4 ]
+while [ $REPLY != 5 ]
 do
 	clear
 	echo "Que souhaitez vous faire?"
 	PS3="Choix : "
-	select opt in "Formater la clé USB" "Copier l'éventuel fichier de license" "Copier la mise à jour dans la clé" "Quitter"
+	select opt in "Formater la clé USB" "Copier l'éventuel fichier de license" "Copier la mise à jour dans la clé" "Ejecter la Clé" "Quitter"
 	do
 		case $REPLY in
 			1 ) format ; break;;
 			2 ) license ; break;;
 			3 ) expand ; break;;
-			4 ) break ;;
+			4 ) eject ; break;;
+			5 ) break ;;
 			*) echo "Option invalide" ; continue
 		esac
 	done
-	[ $REPLY -lt 4 ] && sleep 4
+	[ $REPLY -lt 5 ] && sleep 4
 done
 
 echo
