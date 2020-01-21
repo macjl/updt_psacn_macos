@@ -111,8 +111,7 @@ eject() {
 						find . -name "._*" -exec rm -v {} \; 2>/dev/null
 						rm -fr .Trashes .fseventsd
 						cd -
-						sleep 5
-						diskutil eject /Volumes/PSAUPDT
+						diskutil umountDisk force /Volumes/PSAUPDT
 						echo "Opération terminée. Vous pouvez retirer la clé USB et l'insérer dans votre véhicule"
 					else
 						echo "Clee non trouvée"
